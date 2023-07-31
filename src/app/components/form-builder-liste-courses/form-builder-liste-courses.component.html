@@ -1,0 +1,30 @@
+<body>
+    <ul *ngFor="let article of articles">
+        <li>{{article.designation}} : {{article.prix}} €</li>
+    </ul>
+
+    <p>Total : {{totalPrice}} €</p>
+
+    <form [formGroup]="article" (ngSubmit)="onSubmit()">
+        <div>
+            <label>Désignation :</label>
+            <input type="text" formControlName="designation">
+            <!-- Ajout un ngIf pour afficher un message si le nom est invalide -->
+            <!-- Il n'affichera le message que si le formulaire est soumis -->
+            <span *ngIf="submitted && !form['designation'].valid">
+                *Nom invalide
+            </span>
+        </div>
+        <div>
+            <label>Prix :</label>
+            <input type="number" formControlName="prix">
+            <!-- Ajout un ngIf pour afficher un message si le prix est invalide -->
+            <!-- Il n'affichera le message que si le formulaire est soumis -->
+            <span *ngIf="submitted && !form['prix'].valid">
+                *Prix invalide
+            </span>
+        </div>
+        <!-- Modification du bouton submit qui sera désactivé si le formulaire n'est pas valide -->
+        <button type="submit">Ajouter</button>
+    </form>
+</body>

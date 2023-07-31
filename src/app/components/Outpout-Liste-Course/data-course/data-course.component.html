@@ -1,0 +1,11 @@
+<div *ngFor="let course of courses">
+    <p>{{course.designation}} : {{course.prix}} €</p>
+</div>
+
+<div>
+    Total: {{total}} €
+</div>
+
+<!-- Appel de notre formulaire et ajout d'un event Binding -->
+<!-- Lorsque l'événement est émit, on ajoute la valeur à la fonction addCourse -->
+<app-form-course (onAddArticle)="addCourse($event)"></app-form-course>

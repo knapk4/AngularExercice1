@@ -1,0 +1,5 @@
+<div class="button">
+    <p *ngFor="let button of buttons">
+        <app-generic-alert-button [buttonTitleEnfant]="button.buttonTitleParent" [alertMessageEnfant]="button.alertMessageParent"></app-generic-alert-button>
+    </p>
+</div>
